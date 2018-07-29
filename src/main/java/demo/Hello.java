@@ -1,22 +1,19 @@
 package demo;
 
 import org.eclipse.jgit.api.Git;
-import org.eclipse.jgit.api.errors.GitAPIException;
+import org.eclipse.jgit.lib.*;
 
 import java.io.File;
 
 public class Hello {
+    
+    private static File localDir = new File(".");
 
-    public static void main(String[] args) throws GitAPIException {
-        String uri = "https://github.com/java-demos/java-hello-world-demo.git";
-        File localDir = new File("./target/local-repo/java-hello-world-demo");
-
-        Git.cloneRepository().setURI(uri)
-                .setDirectory(localDir)
-                .setCloneAllBranches(true)
-                .call();
-
-        System.out.println("check dir: " + localDir.getAbsolutePath());
+    public static void main(String[] args) throws Exception {
+        Repository repository = Git.open(localDir).getRepository();
+        ObjectId id = repository.resolve(Constants.HEAD);
+        String head = id.getName();
+        System.out.println("head commit: " + head);
     }
 
 }

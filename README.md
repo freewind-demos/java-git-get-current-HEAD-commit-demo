@@ -1,6 +1,6 @@
-Java Clone Git Repo Demo
-===========================
+Java Git Get Current HEAD Commit Demo
+=====================================
 
-Use [JGit](https://www.eclipse.org/jgit) to clone a git repo programmatically.
+Use [JGit](https://www.eclipse.org/jgit) to get the HEAD commit of this project.
 
-Run `Hello.java` in you IDE, then check the local dir.
+Run `Hello.java` in you IDE.
